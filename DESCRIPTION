@@ -1,0 +1,20 @@
+Package: xopen
+Title: Open System Files, URLs, Anything
+Version: 1.0.0
+Author: Gábor Csárdi
+Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
+Description: Cross platform solution to open files, directories or URLs
+    with their associated programs.
+License: MIT + file LICENSE
+LazyData: true
+URL: https://github.com/r-lib/xopen#readme
+BugReports: https://github.com/r-lib/xopen/issues
+RoxygenNote: 6.1.0
+Imports:
+     processx
+Suggests: 
+    testthat,
+    covr
+Encoding: UTF-8
+Depends: 
+    R (>= 3.1)
