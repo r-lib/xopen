@@ -14,8 +14,10 @@ associated programs.
 
 ## Installation
 
+Once released, you can install xopen from CRAN:
+
 ```r
-devtools::install_github("r-lib/xopen")
+install.packages("xopen")
 ```
 
 ## Usage
