@@ -67,7 +67,7 @@ xopen_win <- function(target, app, app_args) {
   list(cmd, args)
 }
 
-xopen_other <- function(taget, app, app_args) {
+xopen_other <- function(target, app, app_args) {
   if (!is.null(app)) {
     cmd <- app
     args <- app_args
