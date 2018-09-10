@@ -12,6 +12,7 @@
 #'   `app` is `NULL`, then it is ignored, with a warning.
 #' @param quiet Whether to echo the command to the screen, before
 #'   running it.
+#' @param ... Additional arguments, not used currently.
 #'
 #' @section Examples:
 #' ```
@@ -22,7 +23,13 @@
 #' @export
 
 xopen <- function(target = NULL, app = NULL, app_args = NULL,
-                  quiet = FALSE) {
+                  quiet = FALSE, ...)
+  UseMethod("xopen")
+
+#' @export
+
+xopen.default <- function(target = NULL, app = NULL, app_args = NULL,
+                          quiet = FALSE, ...) {
 
   if (is.null(app) && !is.null(app_args)) {
     warning("No `app`, so `app_args` are ignored")

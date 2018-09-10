@@ -4,7 +4,8 @@
 \alias{xopen}
 \title{Open a file, directory or URL}
 \usage{
-xopen(target = NULL, app = NULL, app_args = NULL, quiet = FALSE)
+xopen(target = NULL, app = NULL, app_args = NULL, quiet = FALSE,
+  ...)
 }
 \arguments{
 \item{target}{String, the path or URL to open.}
@@ -17,6 +18,8 @@ are platform dependent.}
 
 \item{quiet}{Whether to echo the command to the screen, before
 running it.}
+
+\item{...}{Additional arguments, not used currently.}
 }
 \description{
 Open a file, directory or URL, using the local platforms conventions,
