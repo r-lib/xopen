@@ -25,7 +25,8 @@ xopen <- function(target = NULL, app = NULL, app_args = NULL) {
       cmd <- app
       args <- app_args
     } else  {
-      cmd <- system.file("xdg-open", package = "xopen")
+      cmd <- Sys.which("xdg-open")
+      if (cmd == "") cmd <- system.file("xdg-open", package = "xopen")
       args <- character()
     }
     args <- c(args, target)
