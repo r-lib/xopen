@@ -17,7 +17,8 @@ RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
 Imports:
     processx
-Suggests: 
+Suggests:
+    ps,
     testthat
 Encoding: UTF-8
 Depends: 
