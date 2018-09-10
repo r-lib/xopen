@@ -8,19 +8,26 @@ test_that("xopen works", {
   }
 
   ## File
-  xopen("test.R")
+  expect_error(xopen("test.R", quiet = TRUE), NA)
 
   ## URL
-  xopen("https://ps.r-lib.org")
+  expect_error(xopen("https://ps.r-lib.org", quiet = TRUE), NA)
 
   ## URL with given app
-  xopen("https://processx.r-lib.org", app = chrome())
+  expect_error(
+    xopen("https://processx.r-lib.org", app = chrome(), quiet = TRUE),
+    NA)
 
   ## App only, no target
-  xopen(app = chrome())
+  expect_error(xopen(app = chrome(), quiet = TRUE), NA)
 
   ## App and arguments (need to quit Chrome for this to work...)
-  xopen(app = chrome(), app_args = c("--incognito", "https://github.com"))
+  expect_error(
+    xopen(
+      app = chrome(),
+      app_args = c("--incognito", "https://github.com"),
+      quiet = TRUE),
+    NA)
 })
 
 test_that("URLs with spaces", {
@@ -29,5 +36,24 @@ test_that("URLs with spaces", {
     skip("Need to test this interactively")
   }
 
-  xopen("https://google.com/search?q=a b c")
+  expect_error(
+    xopen("https://google.com/search?q=a b c", quiet = TRUE),
+    NA)
+})
+
+test_that("errors", {
+  skip_on_cran()
+  expect_error(xopen(tempfile(), quiet = TRUE))
+})
+
+test_that("wait_for_finish", {
+  px <- get("get_tool", asNamespace("processx"))("px")
+  proc <- processx::process$new(
+    px, c("errln", "message", "sleep", "100"), stderr = tempfile())
+  on.exit(proc$kill(), add = TRUE)
+
+  expect_error(wait_for_finish(proc, "target", 10, 10),
+               "Could not open")
+  expect_error(wait_for_finish(proc, "target", 10, 10),
+               "Standard error")
 })

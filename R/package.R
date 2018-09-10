@@ -37,6 +37,9 @@ xopen <- function(target = NULL, app = NULL, app_args = NULL,
   px <- processx::process$new(par[[1]], par[[2]], stderr = err,
                               echo_cmd = !quiet)
 
+  ## Cleanup, if needed
+  if (par[[3]]) wait_for_finish(px, target)
+
   invisible(px)
 }
 
@@ -55,7 +58,7 @@ xopen_macos <- function(target, app, app_args) {
   args <- if (!is.null(app)) c("-a", app)
   args <- c(args, target)
   if (!is.null(app)) args <- c(args, "--args",  app_args)
-  list(cmd, args)
+  list(cmd, args, TRUE)
 }
 
 xopen_win <- function(target, app, app_args) {
@@ -64,18 +67,56 @@ xopen_win <- function(target, app, app_args) {
   target <- gsub("&", "^&", target)
   if (!is.null(app)) args <- c(args, app, app_args)
   args <- c(args, target)
-  list(cmd, args)
+  list(cmd, args, TRUE)
 }
 
 xopen_other <- function(target, app, app_args) {
   if (!is.null(app)) {
     cmd <- app
     args <- app_args
+    cleanup <- FALSE
   } else  {
     cmd <- Sys.which("xdg-open")
     if (cmd == "") cmd <- system.file("xdg-open", package = "xopen")
     args <- character()
+    cleanup <- TRUE
   }
   args <- c(args, target)
-  list(cmd, args)
+  list(cmd, args, cleanup)
+}
+
+#' Wait for a process to finish
+#'
+#' With timeout(s), and interaction, if the session is interactive.
+#'
+#' First we wait for 2s. If the process is still alive, then we give
+#' it another 5s, but first let the user know that they can interrupt
+#' the process.
+#'
+#' @param process The process. It should not have `stdout` or `stderr`
+#'   pipes, because that can make it freeze.
+#' @param timeout1 Timeout before message.
+#' @param timeout2 Timeout after message.
+#'
+#' @keywords internal
+
+wait_for_finish <- function(process, target, timeout1 = 2000,
+                            timeout2 = 5000) {
+  on.exit(process$kill(), add = TRUE)
+  process$wait(timeout = timeout1)
+  if (process$is_alive()) {
+    message("Still trying to open ", encodeString(target, quote = "'"),
+            ", you can interrupt any time")
+    process$wait(timeout = timeout2)
+    process$kill()
+  }
+  if (stat <- process$get_exit_status()) {
+    err <- if (file.exists(ef <- process$get_error_file())) readLines(ef)
+    stop(
+      call. = FALSE,
+      "Could not open ", encodeString(target, quote = "'"), "\n",
+      "Exit status: ", stat, "\n",
+      if (length(err) && nzchar(err))
+        paste("Standard error:", err, collapse = "\n"))
+  }
 }
