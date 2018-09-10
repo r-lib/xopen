@@ -7,7 +7,6 @@
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-lib/xopen?branch=master&svg=true)](https://ci.appveyor.com/project/gaborcsardi/xopen)
 [![](http://www.r-pkg.org/badges/version/xopen)](http://www.r-pkg.org/pkg/xopen)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/xopen)](http://www.r-pkg.org/pkg/xopen)
-[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/xopen/master.svg)](https://codecov.io/github/r-lib/xopen?branch=master)
 
 Cross platform solution to open files, directories or URLs with their
 associated programs.

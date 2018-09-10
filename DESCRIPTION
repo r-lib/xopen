@@ -16,10 +16,9 @@ BugReports: https://github.com/r-lib/xopen/issues
 RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
 Imports:
-     processx
+    processx
 Suggests: 
-    testthat,
-    covr
+    testthat
 Encoding: UTF-8
 Depends: 
     R (>= 3.1)
