@@ -1,4 +1,24 @@
 
+#' Open a file, directory or URL
+#'
+#' Open a file, directory or URL, using the local platforms conventions,
+#' i.e. associated applications, default programs, etc. This is usually
+#' equivalent to double-clicking on the file in the GUI.
+#'
+#' @param target String, the path or URL to open.
+#' @param app Specify the app to open `target` with. Note that app names
+#'   are platform dependent.
+#' @param app_args Arguments to pass to `app`. If this is specified, but
+#'   `app` is `NULL`, then it is ignored, with a warning.
+#' @param quiet Whether to echo the command to the screen, before
+#'   running it.
+#'
+#' @section Examples:
+#' ```
+#' xopen("test.R")
+#' xopen("https://ps.r-lib.org")
+#' xopen(tempdir())
+#' ```
 #' @export
 
 xopen <- function(target = NULL, app = NULL, app_args = NULL,
