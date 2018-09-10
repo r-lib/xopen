@@ -28,6 +28,12 @@ xopen <- function(target = NULL, app = NULL, app_args = NULL,
     warning("No `app`, so `app_args` are ignored")
   }
 
+  xopen2(target, app, app_args, quiet)
+}
+
+xopen2 <- function(target, app, app_args, quiet,
+                   timeout1 = 2000, timeout2 = 5000) {
+
   os <- get_os()
   fun <- switch(os, win = xopen_win, macos = xopen_macos, xopen_other)
   par <- fun(target, app, app_args)
@@ -38,7 +44,7 @@ xopen <- function(target = NULL, app = NULL, app_args = NULL,
                               echo_cmd = !quiet)
 
   ## Cleanup, if needed
-  if (par[[3]]) wait_for_finish(px, target)
+  if (par[[3]]) wait_for_finish(px, target, timeout1, timeout2)
 
   invisible(px)
 }

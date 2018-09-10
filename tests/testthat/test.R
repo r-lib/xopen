@@ -43,7 +43,7 @@ test_that("URLs with spaces", {
 
 test_that("errors", {
   skip_on_cran()
-  expect_error(xopen(tempfile(), quiet = TRUE))
+  expect_error(xopen2(tempfile(), quiet = TRUE, timeout1 = 10, timeout2 = 10))
 })
 
 test_that("wait_for_finish", {
@@ -52,6 +52,7 @@ test_that("wait_for_finish", {
     px, c("errln", "message", "sleep", "100"), stderr = tempfile())
   on.exit(proc$kill(), add = TRUE)
 
+  proc$poll_io(1000)
   expect_error(wait_for_finish(proc, "target", 10, 10),
                "Could not open")
   expect_error(wait_for_finish(proc, "target", 10, 10),
