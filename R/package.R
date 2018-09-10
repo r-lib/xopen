@@ -8,15 +8,9 @@ xopen <- function(target = NULL, app = NULL, app_args = NULL,
     warning("No `app`, so `app_args` are ignored")
   }
 
-  if (.Platform$OS.type == "windows") {
-    par <- xopen_win(target, app, app_args)
-
-  } else if (Sys.info()[["sysname"]] == "Darwin") {
-    par <- xopen_macos(target, app, app_args)
-
-  } else {
-    par <- xopen_other(target, app, app_args)
-  }
+  os <- get_os()
+  fun <- switch(os, win = xopen_win, macos = xopen_macos, xopen_other)
+  par <- fun(target, app, app_args)
 
   err <- tempfile()
   on.exit(unlink(err, recursive = TRUE), add = TRUE)
@@ -24,6 +18,16 @@ xopen <- function(target = NULL, app = NULL, app_args = NULL,
                               echo_cmd = !quiet)
 
   invisible(px)
+}
+
+get_os <- function() {
+  if (.Platform$OS.type == "windows") {
+    "win"
+  } else if (Sys.info()[["sysname"]] == "Darwin") {
+    "macos"
+  } else {
+    "other"
+  }
 }
 
 xopen_macos <- function(target, app, app_args) {
