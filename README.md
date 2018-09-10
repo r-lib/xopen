@@ -9,7 +9,9 @@
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/xopen)](http://www.r-pkg.org/pkg/xopen)
 
 Cross platform solution to open files, directories or URLs with their
-associated programs.
+associated programs. Inspired by `shell.exec()`,
+https://github.com/pwnall/node-open and
+https://github.com/sindresorhus/opn
 
 ## Installation
 
