@@ -24,8 +24,7 @@ test_that("xopen works", {
   ## App and arguments (need to quit Chrome for this to work...)
   expect_error(
     xopen(
-      app = chrome(),
-      app_args = c("--incognito", "https://github.com"),
+      app = c(chrome(), "--incognito", "https://github.com"),
       quiet = TRUE),
     NA)
 })

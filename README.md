@@ -60,7 +60,7 @@ xopen(app = chrome())
 
 App and arguments. (You need to quit Chrome for this to work):
 ```r
-xopen(app = chrome(), app_args = c("--incognito", "https://github.com"))
+xopen(app = c(chrome(), "--incognito", "https://github.com"))
 ```
 
 ## License

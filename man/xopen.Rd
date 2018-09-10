@@ -4,17 +4,13 @@
 \alias{xopen}
 \title{Open a file, directory or URL}
 \usage{
-xopen(target = NULL, app = NULL, app_args = NULL, quiet = FALSE,
-  ...)
+xopen(target = NULL, app = NULL, quiet = FALSE, ...)
 }
 \arguments{
 \item{target}{String, the path or URL to open.}
 
-\item{app}{Specify the app to open \code{target} with. Note that app names
-are platform dependent.}
-
-\item{app_args}{Arguments to pass to \code{app}. If this is specified, but
-\code{app} is \code{NULL}, then it is ignored, with a warning.}
+\item{app}{Specify the app to open \code{target} with, and its arguments,
+in a character vector. Note that app names are platform dependent.}
 
 \item{quiet}{Whether to echo the command to the screen, before
 running it.}
