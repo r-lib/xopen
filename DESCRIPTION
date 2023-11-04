@@ -6,7 +6,9 @@ Authors@R: c(
     person("Fathi", "Boudra", role = "aut"),
     person("Rex", "Dieter", role = "aut"),
     person("Kevin", "Krammer", role = "aut"),
-    person("Jeremy", "White", role = "aut"))
+    person("Jeremy", "White", role = "aut"),
+    person("Posit Software, PBC", role = c("cph", "fnd"))
+    )
 Description: Cross platform solution to open files, directories or 'URLs'
     with their associated programs.
 License: MIT + file LICENSE
