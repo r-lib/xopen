@@ -3,10 +3,12 @@
 
 > Open System Files, URLs, Anything
 
-[![Linux Build Status](https://travis-ci.org/r-lib/xopen.svg?branch=master)](https://travis-ci.org/r-lib/xopen)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-lib/xopen?branch=master&svg=true)](https://ci.appveyor.com/project/gaborcsardi/xopen)
-[![](http://www.r-pkg.org/badges/version/xopen)](http://www.r-pkg.org/pkg/xopen)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/xopen)](http://www.r-pkg.org/pkg/xopen)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/r-lib/xopen/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/xopen/actions/workflows/R-CMD-check.yaml)
+[![](https://www.r-pkg.org/badges/version/xopen)](https://www.r-pkg.org/pkg/xopen)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/xopen)](https://www.r-pkg.org/pkg/xopen)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/xopen/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/xopen?branch=main)
+<!-- badges: end -->
 
 Cross platform solution to open files, directories or URLs with their
 associated programs. Inspired by `shell.exec()`,
