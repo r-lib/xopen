@@ -23,9 +23,11 @@ i.e. associated applications, default programs, etc. This is usually
 equivalent to double-clicking on the file in the GUI.
 }
 \section{Examples}{
-\preformatted{xopen("test.R")
+
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{xopen("test.R")
 xopen("https://ps.r-lib.org")
 xopen(tempdir())
-}
+}\if{html}{\out{</div>}}
 }
 
