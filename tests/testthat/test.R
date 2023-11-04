@@ -1,6 +1,3 @@
-
-context("xopen")
-
 test_that("xopen works", {
 
   if (Sys.getenv("TESTTHAT_INTERACTIVE") == "") {

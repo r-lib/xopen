@@ -21,8 +21,9 @@ Imports:
     processx
 Suggests:
     ps,
-    testthat
+    testthat (>= 3.0.0)
 Encoding: UTF-8
 Depends: 
     R (>= 3.1)
 Config/Needs/website: tidyverse/tidytemplate
+Config/testthat/edition: 3
