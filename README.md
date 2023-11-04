@@ -17,10 +17,16 @@ https://github.com/sindresorhus/opn
 
 ## Installation
 
-Once released, you can install xopen from CRAN:
+Stable version:
 
 ```r
 install.packages("xopen")
+```
+
+Development version:
+
+```r
+pak::pak("r-lib/xopen")
 ```
 
 ## Usage
