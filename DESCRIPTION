@@ -1,6 +1,6 @@
 Package: xopen
 Title: Open System Files, 'URLs', Anything
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
     person("Gábor", "Csárdi", , "csardi.gabor@gmail.com", role = c("aut", "cre")),
     person("Fathi", "Boudra", role = "aut"),
