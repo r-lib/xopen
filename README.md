@@ -7,7 +7,7 @@
 [![R-CMD-check](https://github.com/r-lib/xopen/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/xopen/actions/workflows/R-CMD-check.yaml)
 [![](https://www.r-pkg.org/badges/version/xopen)](https://www.r-pkg.org/pkg/xopen)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/xopen)](https://www.r-pkg.org/pkg/xopen)
-[![Codecov test coverage](https://codecov.io/gh/r-lib/xopen/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/xopen?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/xopen/graph/badge.svg)](https://app.codecov.io/gh/r-lib/xopen)
 <!-- badges: end -->
 
 Cross platform solution to open files, directories or URLs with their
