@@ -1,33 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/reference/wait_for_finish.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/reference/xopen-package.html</loc>
-  </url>
-  <url>
-    <loc>https://r-lib.github.io/xopen/dev/reference/xopen.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://r-lib.github.io/xopen/dev/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/LICENSE-text.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/LICENSE.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/authors.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/index.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/news/index.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/reference/index.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/reference/wait_for_finish.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/reference/xopen-package.html</loc></url>
+<url><loc>https://r-lib.github.io/xopen/dev/reference/xopen.html</loc></url>
 </urlset>
+
