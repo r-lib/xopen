@@ -1,4 +1,3 @@
-
 #' Open a file, directory or URL
 #'
 #' Open a file, directory or URL, using the local platforms conventions,
@@ -26,20 +25,22 @@ xopen <- function(target = NULL, app = NULL, quiet = FALSE, ...)
 #' @export
 
 xopen.default <- function(target = NULL, app = NULL, quiet = FALSE, ...) {
-
   xopen2(target, app, quiet)
 }
 
 xopen2 <- function(target, app, quiet, timeout1 = 2000, timeout2 = 5000) {
-
   os <- get_os()
   fun <- switch(os, win = xopen_win, macos = xopen_macos, xopen_other)
   par <- fun(target, app)
 
   err <- tempfile()
   on.exit(unlink(err, recursive = TRUE), add = TRUE)
-  px <- processx::process$new(par[[1]], par[[2]], stderr = err,
-                              echo_cmd = !quiet)
+  px <- processx::process$new(
+    par[[1]],
+    par[[2]],
+    stderr = err,
+    echo_cmd = !quiet
+  )
 
   ## Cleanup, if needed
   if (par[[3]]) wait_for_finish(px, target, timeout1, timeout2)
@@ -79,7 +80,7 @@ xopen_other <- function(target, app) {
     cmd <- app[1]
     args <- app[-1]
     cleanup <- FALSE
-  } else  {
+  } else {
     cmd <- Sys.which("xdg-open")
     if (cmd == "") cmd <- system.file("xdg-open", package = "xopen")
     args <- character()
@@ -104,13 +105,15 @@ xopen_other <- function(target, app) {
 #'
 #' @keywords internal
 
-wait_for_finish <- function(process, target, timeout1 = 2000,
-                            timeout2 = 5000) {
+wait_for_finish <- function(process, target, timeout1 = 2000, timeout2 = 5000) {
   on.exit(process$kill(), add = TRUE)
   process$wait(timeout = timeout1)
   if (process$is_alive()) {
-    message("Still trying to open ", encodeString(target, quote = "'"),
-            ", you can interrupt any time")
+    message(
+      "Still trying to open ",
+      encodeString(target, quote = "'"),
+      ", you can interrupt any time"
+    )
     process$wait(timeout = timeout2)
     process$kill()
   }
@@ -118,9 +121,14 @@ wait_for_finish <- function(process, target, timeout1 = 2000,
     err <- if (file.exists(ef <- process$get_error_file())) readLines(ef)
     stop(
       call. = FALSE,
-      "Could not open ", encodeString(target, quote = "'"), "\n",
-      "Exit status: ", stat, "\n",
+      "Could not open ",
+      encodeString(target, quote = "'"),
+      "\n",
+      "Exit status: ",
+      stat,
+      "\n",
       if (length(err) && nzchar(err))
-        paste("Standard error:", err, collapse = "\n"))
+        paste("Standard error:", err, collapse = "\n")
+    )
   }
 }

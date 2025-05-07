@@ -13,3 +13,5 @@
 ^\.github$
 ^LICENSE\.md$
 ^revdep$
+^[\.]?air\.toml$
+^\.vscode$
